@@ -19,9 +19,16 @@ body {
     color: var(--main-clr--contrast);
 }
 
+h1 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    position: relative;
+    font-size: max(14pt, 1.7rem);
+}
+
 .content {
     display: grid;
-    grid-template: 1fr 1fr / 3fr 1fr;
+    grid-template: auto auto / auto auto;
     gap: var(--gap);
     background-color: var(--secondary-clr);
 }
@@ -35,13 +42,14 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template: 1fr 4fr / 1fr 4fr;
+    grid-template: auto auto / minmax(250px, 300px) auto;
 }
 
 .header {
     grid-column: 2 / -1;
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: auto auto;
+    padding: 25px 60px 15px 50px;
 }
 
 .header__actions {
@@ -56,7 +64,7 @@ body {
 
 .header__bottom-row {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: auto auto;
 }
 
 .header__button {
@@ -87,11 +95,13 @@ body {
     background-color: var(--secondary-clr);
     border: none;
     border-radius: var(--border-radius);
+    width: 610px;
+    height: 30px;
 }
 
 .header__top-row {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: auto auto;
     gap: var(--gap);
 }
 
@@ -140,21 +150,46 @@ body {
 .sidebar {
     grid-row: 1 / 3;
     background-color: var(--dashboard-clr);
+    padding: 20px;
+    display: grid;
+    grid-template-rows: min-content min-content min-content;
 }
 
 .sidebar a {
     text-decoration: none;
     color: var(--dashboard-clr--contrast);
+    position: relative;
+}
+
+.sidebar h1 span {
+    position: absolute;
+    bottom: 15px;
 }
 
 .sidebar li {
-    font-size: max(14pt, 1rem);
+    font-size: max(16pt, 1rem);
     font-weight: 700;
     list-style: none;
-    
+}
+
+.sidebar menu {
+    padding-inline-start: 0;
+    margin: 20px 0;
+}
+
+.sidebar span {
+    position: absolute;
+    bottom: 4px;
 }
 
 .sidebar__icon {
     fill: var(--dashboard-clr--contrast);
-    margin-right: 24px;
+    
+    &.icon--small {
+        margin: 20px 32px 0 12px;
+    }
+    
+    &.icon--big {
+        margin-right: 20px;
+    }
 }
